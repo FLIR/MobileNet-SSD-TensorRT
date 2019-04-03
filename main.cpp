@@ -11,13 +11,10 @@
 
 //const char* model  = "../../model/MobileNetSSD_deploy_iplugin.prototxt";
 //const char* weight = "../../model/MobileNetSSD_deploy.caffemodel";
-//const char* model  = "/home/jackyl/work/MobileNet-SSD-TensorRT/model/MobileNetSSD_deploy_iplugin.prototxt";
-//const char* weight = "/home/jackyl/work/MobileNet-SSD-TensorRT/model/MobileNetSSD_deploy.caffemodel";
-//const char* model  = "/home/jackyl/work/MobileNet-SSD-TensorRT/myModel/deploy_iplugin.prototxt";
-//const char* weight = "/home/jackyl/work/MobileNet-SSD-TensorRT/myModel/mobilenet_iter_73000.caffemodel";
-//const char* weight = "/home/jackyl/work/MobileNet-SSD-TensorRT/myModel/MobileNetSSD_deploy.caffemodel";
-const char* model  = "/home/jackyl/work/MobileNet-SSD-TensorRT_wip/myModel/deploy_no_bn_iplugin_cudnn.prototxt";
-const char* weight = "/home/jackyl/work/MobileNet-SSD-TensorRT_wip/myModel/mobilenet_iter_60000_no_bn.caffemodel";
+//const char* model  = "/home/flir/work/MobileNet-SSD-TensorRT/model/MobileNetSSD_deploy_iplugin.prototxt";
+//const char* weight = "/home/flir/work/MobileNet-SSD-TensorRT/model/MobileNetSSD_deploy.caffemodel";
+const char* model  = "/home/flir/work/MobileNet-SSD-TensorRT/myModel/deploy_no_bn_iplugin_cudnn.prototxt";
+const char* weight = "/home/flir/work/MobileNet-SSD-TensorRT/myModel/mobilenet_iter_60000_no_bn.caffemodel";
 
 const char* INPUT_BLOB_NAME = "data";
 
@@ -129,7 +126,7 @@ int main(int argc, char *argv[])
     Timer timer;
 
 //    std::string imgFile = "../../testPic/test.jpg";
-    std::string imgFile = "/home/jackyl/work/MobileNet-SSD-TensorRT/testPic/test.jpg";
+    std::string imgFile = "/home/flir/work/MobileNet-SSD-TensorRT/testPic/test.jpg";
     frame = cv::imread(imgFile);
     
 //    std::thread readTread(readPicture);
