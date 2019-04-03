@@ -12,6 +12,8 @@
 #include "NvCaffeParser.h"
 #include "NvInferPlugin.h"
 
+#include <vector>
+
 #define NUM_CLASSES 81
 
 void cudaSoftmax(int n, int channels,  float* x, float*y);
