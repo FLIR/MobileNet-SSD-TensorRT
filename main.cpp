@@ -177,8 +177,8 @@ int main(int argc, char *argv[])
         cv::rectangle(srcImg,cv::Rect2f(cv::Point(x1,y1),cv::Point(x2,y2)),cv::Scalar(255,0,255),1);
 
     }
-    cv::imshow("mobileNet",srcImg);
-    cv::waitKey(0);
+    //cv::imshow("mobileNet",srcImg);
+    //cv::waitKey(0);
     free(imgData);
 //    }
     cudaFree(imgCUDA);
