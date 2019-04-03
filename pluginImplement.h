@@ -12,6 +12,8 @@
 #include "NvCaffeParser.h"
 #include "NvInferPlugin.h"
 
+#define NUM_CLASSES 81
+
 void cudaSoftmax(int n, int channels,  float* x, float*y);
 
 #define CHECK(status)                                                                                           \
@@ -147,7 +149,7 @@ public:
         assert(inputs[index].nbDims == 3);
 
         //确保输入的两个维度的积能被 类别数 整除  assert((inputs[0].d[0])*(inputs[0].d[1]) % OutC == 0);
-        assert((inputs[0].d[0])*(inputs[0].d[1]) % 5 == 0);
+        assert((inputs[0].d[0])*(inputs[0].d[1]) % NUM_CLASSES == 0);
 
         // @TODO: Understood this.
         return DimsCHW( inputs[0].d[0] , inputs[0].d[1] , inputs[0].d[2] );
@@ -165,7 +167,7 @@ public:
 //        CHECK(cudaMemcpyAsync(outputs[0],inputs[0],batchSize*mCopySize*sizeof(float),cudaMemcpyDeviceToDevice,stream));
 
         //cudaSoftmax( 8732*21, 21, (float *) *inputs, static_cast<float *>(*outputs));
-        cudaSoftmax( 1917*5, 5, (float *) *inputs, static_cast<float *>(*outputs));
+        cudaSoftmax( 1917*NUM_CLASSES, NUM_CLASSES, (float *) *inputs, static_cast<float *>(*outputs));
 
         return 0;
     }
@@ -317,7 +319,7 @@ public:
     std::unique_ptr<INvPlugin, decltype(nvPluginDeleter)> mBox_conf_layer{ nullptr, nvPluginDeleter };
     std::unique_ptr<INvPlugin, decltype(nvPluginDeleter)> mBox_priorbox_layer{ nullptr, nvPluginDeleter };
     //reshape layer
-    std::unique_ptr<Reshape<5>> mMbox_conf_reshape{ nullptr };
+    std::unique_ptr<Reshape<NUM_CLASSES>> mMbox_conf_reshape{ nullptr };
     //flatten layers
     std::unique_ptr<FlattenLayer> mConv11_mbox_conf_flat_layer{ nullptr };
     std::unique_ptr<FlattenLayer> mConv13_mbox_conf_flat_layer{ nullptr };

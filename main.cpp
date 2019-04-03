@@ -9,8 +9,15 @@
 #include <thread>
 
 
-const char* model  = "../../model/MobileNetSSD_deploy_iplugin.prototxt";
-const char* weight = "../../model/MobileNetSSD_deploy.caffemodel";
+//const char* model  = "../../model/MobileNetSSD_deploy_iplugin.prototxt";
+//const char* weight = "../../model/MobileNetSSD_deploy.caffemodel";
+//const char* model  = "/home/jackyl/work/MobileNet-SSD-TensorRT/model/MobileNetSSD_deploy_iplugin.prototxt";
+//const char* weight = "/home/jackyl/work/MobileNet-SSD-TensorRT/model/MobileNetSSD_deploy.caffemodel";
+//const char* model  = "/home/jackyl/work/MobileNet-SSD-TensorRT/myModel/deploy_iplugin.prototxt";
+//const char* weight = "/home/jackyl/work/MobileNet-SSD-TensorRT/myModel/mobilenet_iter_73000.caffemodel";
+//const char* weight = "/home/jackyl/work/MobileNet-SSD-TensorRT/myModel/MobileNetSSD_deploy.caffemodel";
+const char* model  = "/home/jackyl/work/MobileNet-SSD-TensorRT_wip/myModel/deploy_no_bn_iplugin_cudnn.prototxt";
+const char* weight = "/home/jackyl/work/MobileNet-SSD-TensorRT_wip/myModel/mobilenet_iter_60000_no_bn.caffemodel";
 
 const char* INPUT_BLOB_NAME = "data";
 
@@ -122,11 +129,13 @@ int main(int argc, char *argv[])
     Timer timer;
 
 //    std::string imgFile = "../../testPic/test.jpg";
-//    frame = cv::imread(imgFile);
-    std::thread readTread(readPicture);
-    readTread.detach();
-    while(1){
-    imageBuffer->consume(frame);
+    std::string imgFile = "/home/jackyl/work/MobileNet-SSD-TensorRT/testPic/test.jpg";
+    frame = cv::imread(imgFile);
+    
+//    std::thread readTread(readPicture);
+//    readTread.detach();
+//    while(1){
+//    imageBuffer->consume(frame);
 
     srcImg = frame.clone();
     cv::resize(frame, frame, cv::Size(300,300));
@@ -172,9 +181,9 @@ int main(int argc, char *argv[])
 
     }
     cv::imshow("mobileNet",srcImg);
-    cv::waitKey(40);
+    cv::waitKey(0);
     free(imgData);
-    }
+//    }
     cudaFree(imgCUDA);
     cudaFreeHost(imgCPU);
     cudaFree(output);

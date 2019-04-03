@@ -366,7 +366,7 @@ nvinfer1::IPlugin* PluginFactory::createPlugin(const char* layerName, const nvin
     {
         assert(mMbox_conf_reshape.get() == nullptr);
         assert(nbWeights == 0 && weights == nullptr);
-        mMbox_conf_reshape = std::unique_ptr<Reshape<5>>(new Reshape<5>());
+        mMbox_conf_reshape = std::unique_ptr<Reshape<NUM_CLASSES>>(new Reshape<NUM_CLASSES>());
         return mMbox_conf_reshape.get();
     }
     //softmax layer
@@ -389,7 +389,7 @@ nvinfer1::IPlugin* PluginFactory::createPlugin(const char* layerName, const nvin
         params.varianceEncodedInTarget = false;
         params.topK = 100;
         params.nmsThreshold = 0.45;
-        params.numClasses = 5;
+        params.numClasses = NUM_CLASSES;
         params.inputOrder[0] = 0;
         params.inputOrder[1] = 1;
         params.inputOrder[2] = 2;
@@ -649,7 +649,7 @@ IPlugin* PluginFactory::createPlugin(const char* layerName, const void* serialDa
     {
         assert(mMbox_conf_reshape == nullptr);
         //num of class,by lcg
-        mMbox_conf_reshape = std::unique_ptr<Reshape<5>>(new Reshape<5>(serialData, serialLength));
+        mMbox_conf_reshape = std::unique_ptr<Reshape<NUM_CLASSES>>(new Reshape<NUM_CLASSES>(serialData, serialLength));
         return mMbox_conf_reshape.get();
     }
     //softmax
