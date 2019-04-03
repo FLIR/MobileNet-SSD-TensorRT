@@ -5,7 +5,7 @@ project(mobileNet)
 #set(inference_VERSION_MINOR 1)
 
 #set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 set(BUILD_DEPS "YES" CACHE BOOL "If YES, will install dependencies into sandbox.  Automatically reset to NO after dependencies are installed.")
 
 set(PROJECT_OUTPUT_DIR  ${PROJECT_BINARY_DIR}/build)
