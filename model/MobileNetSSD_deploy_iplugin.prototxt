@@ -34,7 +34,7 @@ layer {
     pad: 1
     kernel_size: 3
     group: 32
-    engine: CAFFE
+    #engine: CAFFE
   }
 }
 layer {
@@ -70,7 +70,7 @@ layer {
     kernel_size: 3
     stride: 2
     group: 64
-    engine: CAFFE
+    #engine: CAFFE
   }
 }
 layer {
@@ -105,7 +105,7 @@ layer {
     pad: 1
     kernel_size: 3
     group: 128
-    engine: CAFFE
+    #engine: CAFFE
   }
 }
 layer {
@@ -141,7 +141,7 @@ layer {
     kernel_size: 3
     stride: 2
     group: 128
-    engine: CAFFE
+    #engine: CAFFE
   }
 }
 layer {
@@ -176,7 +176,7 @@ layer {
     pad: 1
     kernel_size: 3
     group: 256
-    engine: CAFFE
+    #engine: CAFFE
   }
 }
 layer {
@@ -212,7 +212,7 @@ layer {
     kernel_size: 3
     stride: 2
     group: 256
-    engine: CAFFE
+    #engine: CAFFE
   }
 }
 layer {
@@ -247,7 +247,7 @@ layer {
     pad: 1
     kernel_size: 3
     group: 512
-    engine: CAFFE
+    #engine: CAFFE
   }
 }
 layer {
@@ -282,7 +282,7 @@ layer {
     pad: 1
     kernel_size: 3
     group: 512
-    engine: CAFFE
+    #engine: CAFFE
   }
 }
 layer {
@@ -317,7 +317,7 @@ layer {
     pad: 1
     kernel_size: 3
     group: 512
-    engine: CAFFE
+    #engine: CAFFE
   }
 }
 layer {
@@ -352,7 +352,7 @@ layer {
     pad: 1
     kernel_size: 3
     group: 512
-    engine: CAFFE
+    #engine: CAFFE
   }
 }
 layer {
@@ -387,7 +387,7 @@ layer {
     pad: 1
     kernel_size: 3
     group: 512
-    engine: CAFFE
+    #engine: CAFFE
   }
 }
 layer {
@@ -423,7 +423,7 @@ layer {
     kernel_size: 3
     stride: 2
     group: 512
-    engine: CAFFE
+    #engine: CAFFE
   }
 }
 layer {
@@ -458,7 +458,7 @@ layer {
     pad: 1
     kernel_size: 3
     group: 1024
-    engine: CAFFE
+    #engine: CAFFE
   }
 }
 layer {
