@@ -179,6 +179,7 @@ int main(int argc, char *argv[])
     }
     //cv::imshow("mobileNet",srcImg);
     //cv::waitKey(0);
+    cv::imwrite("/home/flir/work/MobileNet-SSD-TensorRT/testPic/det-test.jpg", srcImg);
     free(imgData);
 //    }
     cudaFree(imgCUDA);
